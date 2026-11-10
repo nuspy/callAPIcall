@@ -1,0 +1,116 @@
+# --- Python (call-bridge / skill) ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- Log e runtime ---
+*.log
+*.out
+serve.log*
+ptt*.log
+ptt.out
+gateway.log
+gateway.out
+install-service.log
+ptt-supervisor.log
+*.prev
+
+# --- Node / web app ---
+node_modules/
+dist/
+dist-ssr/
+# Build web dell'app (servito dal bridge su /myAi): artefatto, come dist/
+dist-web/
+*.tsbuildinfo
+*.local
+
+# --- Capacitor / Android: si traccia il progetto nativo, si ignorano gli artefatti ---
+app/android/.gradle/
+app/android/build/
+app/android/app/build/
+app/android/local.properties
+app/android/.idea/
+app/android/captures/
+app/android/app/src/main/assets/public/
+app/android/app/src/main/assets/capacitor.config.json
+app/ios/
+app/.gradle/
+app/.capacitor/
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Eventuali segreti locali ---
+*.pem
+*.key
+.env
+
+# --- Diagnostica usa-e-getta (script di probe + campioni audio) ---
+call-bridge/diag/
+
+# --- Avatar video: si tracciano worker e persone, NON repo/venv/pesi (GB) ---
+# MuseTalk: il CODICE e' vendorizzato (vedi avatar/MuseTalk/VENDORED.md), le
+# nostre modifiche devono stare nella storia di git. Restano fuori i pesi, che
+# li scarica l'installer, e i materiali di esempio, che a differenza del codice
+# non sono MIT ma "non-commercial research purposes only".
+avatar/MuseTalk/models/
+avatar/MuseTalk/assets/
+avatar/MuseTalk/data/
+avatar/MuseTalk/results/
+avatar/MuseTalk/**/__pycache__/
+avatar/musetalk-venv/
+avatar/cache/
+avatar/__pycache__/
+
+# --- Driver di terze parti scaricati (SimTech ecc.) ---
+drivers/*
+# ...tranne il filtro virtual camera estratto (deployment senza OBS)
+!drivers/obs-virtualcam/
+
+# --- Pagine web salvate per consultazione ---
+*Manuals+*.html
+*Manuals+*_files/
+
+/avatar/persone/
+
+# --- Artifact di analisi/riunioni (trascrizioni, riassunti: dati personali) ---
+call-bridge/artifacts/
+# --- Modelli di diarizzazione (~130 MB, si riscaricano con
+#     `python fetch_diarization_models.py`) ---
+call-bridge/models/diarization/
+# --- Token OAuth calendari ---
+call-bridge/secrets/
+
+# --- Motori TTS in venv dedicati: 31 GB di pesi/dipendenze, si ricreano con
+# fetch_models.py + i requirements di ogni motore. Mai nel repo.
+tts-venvs/
+
+# Dump di debug dei turni (audio del microfono: dati personali) e il suo flag.
+call-bridge/turni/
+call-bridge/dump-turni.on
+
+# Venv del cancellatore d'eco: ricreabile con
+#   py -3.12 -m venv aec-venv && aec-venv/Scripts/pip install aec-audio-processing numpy
+aec-venv/
+call-bridge/models/wav2lip.onnx
+app/public/ort/
+
+call-bridge/models/face_landmarker.task
+call-bridge/models/mel_basis.bin
+
+# --- Dati personali e credenziali: mai nel repository ---
+call-bridge/config.json
+call-bridge/.phone_cache.json
+call-bridge/voce/
+call-bridge/models/
+call-bridge/dump-voce.on
+avatar/persone/
+*.wav
+*.mp4
+android-controller/local.properties
+esp32-terminal/build/
+esp32-terminal/managed_components/

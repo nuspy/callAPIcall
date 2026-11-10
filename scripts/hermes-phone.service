@@ -1,0 +1,25 @@
+[Unit]
+Description=callAPIcall Phone Server (:8780) — Hermes LLM proxy
+After=hermes-gateway.service
+Wants=hermes-gateway.service
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+ExecStart=/home/ataini/.hermes/hermes-agent/venv/bin/python3 /home/ataini/.hermes/skills/media/phone-calls/templates/hermes_phone_server.py --host 0.0.0.0 --port 8780
+WorkingDirectory=/home/ataini/.hermes/hermes-agent
+Environment="PATH=/home/ataini/.hermes/hermes-agent/venv/bin:/home/ataini/.hermes/node/bin:/home/ataini/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+Environment="VIRTUAL_ENV=/home/ataini/.hermes/hermes-agent/venv"
+Environment="HERMES_HOME=/home/ataini/.hermes"
+Restart=always
+RestartSec=3
+RestartMaxDelaySec=120
+RestartSteps=5
+KillMode=mixed
+KillSignal=SIGTERM
+TimeoutStopSec=30
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=default.target

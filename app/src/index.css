@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: #0b1020;
+  color: #e6e9f2;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  overscroll-behavior: none;
+}
+
+/* aree sicure (notch / barre) */
+.safe-top { padding-top: env(safe-area-inset-top); }
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
+
+/* Anello di stato del pulsante di conversazione (TalkRing): un segmento che
+   corre lungo il profilo della pillola. `stroke-dashoffset` negativo fa
+   scorrere il tratto in senso orario. Rispetta chi ha chiesto meno animazioni:
+   il colore resta (e distingue ragiona/parla), il movimento no. */
+@keyframes talk-ring-run {
+  to { stroke-dashoffset: -100; }
+}
+.talk-ring-run {
+  animation: talk-ring-run 1.6s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .talk-ring-run { animation: none; stroke-dasharray: none; opacity: 0.5; }
+}

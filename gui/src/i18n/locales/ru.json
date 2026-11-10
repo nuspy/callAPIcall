@@ -1,0 +1,813 @@
+{
+  "app": {
+    "title": "callAPIcall",
+    "subtitle": "Control Center"
+  },
+  "status": {
+    "connected": "connected",
+    "disconnected": "disconnected",
+    "serverReachable": "Control server reachable",
+    "serverDown": "Control server down"
+  },
+  "language": {
+    "label": "Language",
+    "select": "Select language"
+  },
+  "sidebar": {
+    "session": "Session",
+    "calls": "Calls",
+    "components": "Components",
+    "tests": "Tests",
+    "voices": "Voices",
+    "personas": "Personas",
+    "studio": "Studio",
+    "meetings": "Meetings",
+    "knowledge": "Knowledge",
+    "analysis": "Analysis",
+    "settings": "Settings"
+  },
+  "common": {
+    "save": "Save",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "retry": "Retry",
+    "back": "Back",
+    "reload": "Reload",
+    "close": "Close",
+    "loading": "Loading...",
+    "start": "Start",
+    "stop": "Stop",
+    "delete": "Delete",
+    "refresh": "Refresh",
+    "next": "Next",
+    "done": "Done",
+    "add": "Add",
+    "create": "Create",
+    "upload": "Upload",
+    "search": "Search",
+    "connect": "Connect"
+  },
+  "calls": {
+    "title": "Outbound calls",
+    "subtitle": "Place a call with the agent. Transport selected automatically: GSM modem or Android phone.",
+    "transport": {
+      "detected": "Detected transport",
+      "none": "none",
+      "mode": "(mode {{mode}})",
+      "detect": "Detect"
+    },
+    "transportMode": {
+      "auto": "auto",
+      "forceGsm": "force GSM",
+      "forceAndroid": "force Android"
+    },
+    "number": "Number to call, e.g. +1555xxxxxxx",
+    "voiceDefault": "Voice (config default)",
+    "calling": "Starting call...",
+    "call": "Call",
+    "hangup": "Hang up",
+    "phoneState": "Phone state",
+    "unknown": "unknown",
+    "noNumber": "Enter the number to call.",
+    "langs": {
+      "it": "italiano",
+      "en-us": "english",
+      "fr-fr": "francais",
+      "es": "espanol"
+    }
+  },
+  "session": {
+    "title": "Voice session",
+    "subtitle": "Start a conversation with the agent: half-duplex (Shift+F1, speakers) or full-duplex (Shift+F2, headphones with barge-in).",
+    "serverDown": "Control server unreachable: check the bridge component in Components.",
+    "phase": {
+      "idle": "idle",
+      "listening": "listening",
+      "reasoning": "thinking",
+      "speaking": "speaking"
+    },
+    "mode": {
+      "full": "full-duplex (headphones)",
+      "limited": "limited (simulation)",
+      "half": "half-duplex (speakers)"
+    },
+    "closeSession": "Close session",
+    "halfDuplex": {
+      "title": "Half-duplex (speakers)",
+      "desc": "Like Shift+F1: mic muted while agent speaks, no echo with speakers."
+    },
+    "fullDuplex": {
+      "title": "Full-duplex (headphones)",
+      "desc": "Like Shift+F2: continuous listening, you can interrupt the agent (barge-in)."
+    },
+    "loading": "Operation in progress (first start loads models, may take tens of seconds)...",
+    "sessionAlready": "A session is already active.",
+    "copilot": {
+      "title": "Videocall copilot (Shift+F4)",
+      "desc": "Listens to the interlocutor (loopback) and suggests replies; with an active persona also speaks via the avatar.",
+      "active": "active",
+      "inactive": "off",
+      "enable": "Enable",
+      "disable": "Disable",
+      "noProject": "no project",
+      "project": "project: {{name}}",
+      "saveMeeting": "Save meeting to wiki",
+      "saving": "Analyzing and saving...",
+      "saved": "saved: {{path}}"
+    }
+  },
+  "components": {
+    "title": "Components",
+    "subtitle": "Status and control of system processes. Bridge restarts via the run-ptt supervisor; stop keeps it down until you press Start.",
+    "state": {
+      "running": "running",
+      "loading": "loading",
+      "stopping": "stopping",
+      "blocked": "blocked",
+      "error": "error",
+      "stopped": "stopped",
+      "disabled": "disabled",
+      "unreachable": "unreachable",
+      "suspended": "приостановлено"
+    },
+    "bridge": {
+      "title": "Bridge (call-bridge)",
+      "desc": "Single instance: control server (:8770), PTT hotkey, overlay, model keep-alive.",
+      "session": "Voice session active ({{mode}}, phase {{phase}}).",
+      "restart": "Restart",
+      "stop": "Stop",
+      "start": "Start",
+      "notStarted": "Bridge did not start within 20s: check ptt-supervisor.log.",
+      "starting": "Removing sentinel and waiting for supervisor...",
+      "startedSupervisor": "Bridge restarted (supervisor active).",
+      "startingSupervisor": "Supervisor not active: starting it...",
+      "started": "Bridge started."
+    },
+    "gateway": {
+      "title": "Voice gateway",
+      "desc": "WebSocket for Android app (:8771) + media server (:8772).",
+      "restartBridge": "Restart bridge"
+    },
+    "voiceEngine": {
+      "desc": "Speech-to-text and text-to-speech engine (:8720).",
+      "sttLoaded": "loaded ({{model}})",
+      "sttNotLoaded": "not loaded",
+      "ttsLoaded": "loaded ({{model}})",
+      "ttsNotLoaded": "not loaded",
+      "idle": "idle for {{s}}s"
+    },
+    "hermes": {
+      "title": "Hermes (agent)",
+      "desc": "Conversation brain: ACP agent in WSL or HTTP server (:8780).",
+      "start": "Start",
+      "restart": "Restart"
+    },
+    "avatar": {
+      "title": "Avatar worker (MuseTalk)",
+      "desc": "Video worker for persona lipsync on the virtual webcam.",
+      "persona": "active persona: {{persona}}"
+    }
+  },
+  "voices": {
+    "title": "Cloned voices",
+    "new": {
+      "title": "New voice",
+      "namePlaceholder": "Voice name (letters, numbers, - and _)",
+      "nameHint": "Use only letters, numbers, hyphens and underscores.",
+      "record": "Record",
+      "upload": "Upload file"
+    },
+    "record": {
+      "start": "Start recording",
+      "stop": "Stop",
+      "hint": "Speak naturally for {{min}}-{{max}} seconds in a quiet environment.",
+      "short": "Recording too short: at least {{min}} seconds needed.",
+      "micFailed": "Microphone access failed."
+    },
+    "upload": {
+      "button": "Choose audio file",
+      "hint": "WAV, MP3, FLAC or OGG with 5-15 seconds of clean speech.",
+      "badFormat": "Unsupported format: use WAV, MP3, FLAC or OGG."
+    },
+    "saving": "Saving...",
+    "nameInvalid": "Invalid name: use letters, numbers, - and _.",
+    "sampleText": "Sample text",
+    "list": {
+      "title": "Your cloned voices",
+      "empty": "No cloned voices. Create one above."
+    },
+    "delete": "Delete voice"
+  },
+  "personas": {
+    "title": "Personas",
+    "subtitle": "Each persona links a name, a voice and character videos. The avatar shows it on the virtual webcam with synced lipsync.",
+    "serverDown": "Control server unreachable.",
+    "new": {
+      "title": "New persona",
+      "namePlaceholder": "Name (letters, numbers, - and _)",
+      "voicePlaceholder": "Voice...",
+      "hint": "After creation upload at least one .mp4 video (half-body, face clearly visible).",
+      "nameInvalid": "Invalid name: use letters, numbers, - and _.",
+      "mpOnly": "Only .mp4 files."
+    },
+    "list": {
+      "empty": "No personas. Create one above."
+    },
+    "badge": {
+      "avatarActive": "avatar active"
+    },
+    "voice": "Voice:",
+    "noVoice": "No voice",
+    "clips": "Videos ({{count}})",
+    "addClip": "Add clip",
+    "uploadingClip": "Uploading...",
+    "startAvatar": "Start avatar",
+    "starting": "Preparing...",
+    "stopAvatar": "Stop avatar",
+    "noClip": "Upload at least one video clip first"
+  },
+  "voiceEngine": {
+    "vram": {
+      "title": "Models in VRAM",
+      "sttLabel": "Speech-to-Text",
+      "ttsLabel": "Text-to-Speech",
+      "ttsSelected": "selected: {{model}}",
+      "loaded": "loaded ({{model}})",
+      "notLoaded": "not loaded",
+      "idle": "Idle for {{s}}s (auto-unload at {{limit}}s).",
+      "load": "Load models",
+      "loading": "Loading...",
+      "unload": "Unload all"
+    },
+    "voices": {
+      "title": "Available voices",
+      "engine": "(engine {{engine}}, model {{model}})",
+      "none": "No voices (chatterbox engine without cloned voices? See Voices section)."
+    }
+  },
+  "studio": {
+    "title": "TTS + video studio",
+    "subtitle": "Test personas: write text and make them speak with their video (MuseTalk lipsync). Video goes to the virtual webcam.",
+    "serverDown": "Control server unreachable.",
+    "chooseIdentity": "Choose persona...",
+    "stopAvatar": "Stop avatar",
+    "startAvatar": "Start avatar",
+    "startingClip": "Preparing clip (may take minutes)...",
+    "avatarActive": "avatar active: {{persona}}",
+    "textPlaceholder": "Text to speak...",
+    "speak": "Speak with video",
+    "speaking": "In progress...",
+    "interrupt": "Interrupt",
+    "audioOnly": "audio only:",
+    "noClip": "Persona has no video clips: upload one in Personas",
+    "spokenInfo": "Spoken with voice {{voice}} ({{dur}}s).",
+    "howItWorks": "How it works: choose the persona, write text and press Speak with video. The avatar starts automatically. First time per clip takes minutes to prepare; then stays in cache. In a video call select OBS Virtual Camera as the webcam in Meet/Zoom/Teams."
+  },
+  "analysis": {
+    "title": "Video / audio analysis",
+    "subtitle": "Upload a recording or paste a link (YouTube, shared recordings): full transcript, highlights and identified tasks.",
+    "phases": {
+      "queued": "queued",
+      "downloading": "downloading from link",
+      "extracting": "extracting audio",
+      "transcribing": "transcribing",
+      "diarizing": "identifying speakers",
+      "analyzing": "analyzing (summary, highlights, tasks)",
+      "done": "done",
+      "error": "error",
+      "running": "running"
+    },
+    "tabs": {
+      "summary": "Summary",
+      "highlights": "Highlights ({{count}})",
+      "tasks": "Tasks ({{count}})",
+      "transcript": "Transcript"
+    },
+    "form": {
+      "title": "Title (optional)",
+      "url": "https://... (YouTube, recording link or file)",
+      "analyzeUrl": "Analyze URL",
+      "uploadFile": "Upload file",
+      "starting": "Starting analysis...",
+      "badUrl": "Enter a valid http(s) URL.",
+      "speakers": "Voices (0 = auto-detect)"
+    },
+    "history": {
+      "title": "Previous analyses",
+      "empty": "No analyses yet."
+    },
+    "back": "Back",
+    "tasks": {
+      "none": "No tasks identified."
+    },
+    "transcript": {
+      "loading": "Loading transcript..."
+    },
+    "deleteConfirm": "Delete this analysis and its artifacts?",
+    "deleteLabel": "Delete analysis",
+    "speakers": {
+      "hint": "{{n}} voices recognised. Give them a name to see it in the transcript and in the tasks.",
+      "namePlaceholder": "name (optional)",
+      "save": "Save names"
+    }
+  },
+  "meetings": {
+    "title": "Meetings",
+    "subtitle": "Participate in Google Meet or MS Teams meetings with the bot. The bot joins the call, transcribes and analyzes the conversation.",
+    "serverDown": "Control server unreachable.",
+    "botStates": {
+      "idle": "idle",
+      "joining": "joining",
+      "joined": "joined",
+      "leaving": "leaving",
+      "error": "error",
+      "recording": "recording",
+      "analyzing": "analyzing"
+    },
+    "analysisLabels": {
+      "queued": "queued",
+      "extracting": "extracting audio",
+      "transcribing": "transcribing",
+      "analyzing": "analyzing",
+      "done": "done",
+      "error": "error"
+    },
+    "active": {
+      "title": "Active meeting",
+      "bot": "Bot: {{state}}",
+      "leaveBot": "Remove bot",
+      "analyze": "Analyze now",
+      "analyzing": "Analyzing...",
+      "noAnalysis": "Analysis not yet available.",
+      "tabs": {
+        "summary": "Summary",
+        "highlights": "Highlights",
+        "agreements": "Agreements",
+        "tasks": "Tasks",
+        "transcript": "Transcript"
+      }
+    },
+    "join": {
+      "title": "Join a meeting",
+      "url": "Meeting URL (Meet/Teams)",
+      "projectLabel": "Knowledge project (optional)",
+      "noProject": "No project",
+      "join": "Join",
+      "joining": "Joining...",
+      "titlePlaceholder": "Title (optional)",
+      "urlPlaceholder": "https://meet.google.com/... (Teams and Zoom coming soon)"
+    },
+    "calendar": {
+      "title": "Calendar",
+      "loading": "Loading...",
+      "error": "Error loading calendar.",
+      "empty": "No upcoming events.",
+      "joinMeeting": "Join meeting"
+    },
+    "history": {
+      "title": "Past meetings",
+      "empty": "No past meetings.",
+      "insertWiki": "Add to wiki",
+      "inserting": "Saving to wiki...",
+      "deleteConfirm": "Delete this meeting?"
+    },
+    "oauthSetup": "Calendar integration — OAuth setup",
+    "tabs": {
+      "active": "Active",
+      "join": "Join",
+      "calendar": "Calendar",
+      "history": "History"
+    },
+    "back": "Back",
+    "participants": "{{n}} participants",
+    "segments": "{{n}} interventions",
+    "projectSelect": "project...",
+    "projectOption": "project: {{name}}",
+    "wikiTitleAlready": "Already in wiki ({{path}}): republish",
+    "wikiTooltip": "Adds content, agreements and tasks to the project wiki",
+    "wikiPushing": "Adding...",
+    "wikiPushRepublish": "Wiki (republish)",
+    "noAgreements": "No agreements recorded (meetings analyzed before this feature have no agreements: re-analyze if needed).",
+    "noTasks": "No tasks identified.",
+    "loadingTranscript": "Loading transcript...",
+    "waitingSpeech": "Waiting for speech...",
+    "leaveBtn": "Leave and analyze",
+    "calendarTitle": "Upcoming meetings from calendars",
+    "noCalendar": "Connect Google and/or Outlook to see events and choose which meetings the bot joins automatically. First setup is guided: use the gear button next to each provider.",
+    "noEvents": "No events in the next 7 days.",
+    "noLink": "no link",
+    "autoJoin": "auto",
+    "joinNow": "Join now",
+    "deviceCodeClose": "Close",
+    "deleteLabel": "Delete meeting",
+    "lastError": "Last attempt: {{msg}}",
+    "botState": {
+      "idle": "no meeting",
+      "joining": "joining...",
+      "waiting_admit": "in waiting room (an organizer must admit the bot)",
+      "in_call": "in meeting",
+      "leaving": "leaving...",
+      "ended": "ended",
+      "error": "error"
+    },
+    "analysisState": {
+      "pending": "analysis not run",
+      "analyzing": "analysis in progress...",
+      "done": "analyzed",
+      "error": "analysis failed"
+    },
+    "tab": {
+      "summary": "Summary",
+      "highlights": "Highlights ({{count}})",
+      "agreements": "Agreements ({{count}})",
+      "tasks": "Tasks ({{count}})",
+      "transcript": "Transcript"
+    }
+  },
+  "knowledge": {
+    "title": "Knowledge",
+    "subtitle": "Import wiki pages, documents and web content into the local knowledge base for use by the AI agent.",
+    "serverDown": "Knowledge server (wikibridge) is not running on :8775.",
+    "serverDownHint": "Start it with: cd C:\\\\Projects\\\\wikibridge && python -m wikibridge serve",
+    "sections": {
+      "import": "Import",
+      "docs": "Documents",
+      "wiki": "Wiki",
+      "search": "Search",
+      "skill": "Skill"
+    },
+    "auth": {
+      "label": "Auth profile",
+      "none": "Public (no auth)",
+      "title": "Authentication profiles",
+      "add": "Add profile",
+      "fields": {
+        "none": "(none)",
+        "bearer": "Bearer token",
+        "basic": "Username / Password",
+        "cookie": "Cookie string",
+        "header": "Custom header"
+      }
+    },
+    "import": {
+      "title": "Import from URL",
+      "urlPlaceholder": "https://... (wiki page, Confluence, Notion, GitHub wiki)",
+      "depth": "Max depth",
+      "scope": "Scope",
+      "scopeOptions": {
+        "page": "Page only",
+        "subtree": "Subtree",
+        "space": "Full space/namespace"
+      },
+      "maxPages": "Max pages",
+      "authProfile": "Auth profile",
+      "start": "Import",
+      "starting": "Starting...",
+      "progress": "Progress",
+      "history": "Import history",
+      "empty": "No imports yet.",
+      "sync": "Sync",
+      "syncing": "Syncing...",
+      "refreshPage": "Refresh page",
+      "cancel": "Cancel",
+      "deleteConfirm": "Delete this import?",
+      "depthLabel": "Depth (links to follow)",
+      "depth0": "0 - this page only",
+      "depth1": "1 - + linked pages",
+      "depth2": "2 - two levels",
+      "depth3": "3 - three levels (max)",
+      "scopeLabel": "Scope",
+      "scopePage": "page",
+      "scopeSubtree": "subtree/category",
+      "scopeSpace": "entire space/namespace",
+      "maxPagesLabel": "Max pages",
+      "authLabel": "Access",
+      "authPublic": "public (none)",
+      "importBtn": "Import",
+      "hint": "Defaults designed for instant RAG: paste a link and press Import. The wiki type is detected automatically.",
+      "started": "import started",
+      "historyTitle": "Import history",
+      "truncated": "(truncated)",
+      "syncTitle": "Incremental sync (re-fetches only changed pages)",
+      "syncStarted": "sync started"
+    },
+    "docs": {
+      "title": "Upload documents",
+      "hint": "Supports PDF, DOCX, PPTX, XLSX, HTML and plain text files.",
+      "upload": "Upload files",
+      "uploading": "Uploading...",
+      "dir": "Import directory",
+      "dirPlaceholder": "C:\\\\path\\\\to\\\\folder",
+      "dirHint": "Import all supported files in the folder.",
+      "importDir": "Import",
+      "empty": "No documents yet.",
+      "processing": "\"{{name}}\" being processed",
+      "uploadFile": "Upload file",
+      "ingestStarted": "ingest started",
+      "drain": "Catalog backlog (_pending)",
+      "drainDone": "backlog cataloging complete",
+      "drainHint": "Runs LM Studio cataloging left in queue (e.g. imports done by the skill in agent mode)."
+    },
+    "wiki": {
+      "title": "Wiki tree",
+      "empty": "No pages yet. Import a URL or upload documents.",
+      "loading": "Loading...",
+      "refresh": "Refresh",
+      "back": "Back to tree",
+      "refreshTitle": "Re-fetch this page from the source wiki",
+      "updated": "page updated",
+      "unchanged": "page unchanged",
+      "selectPage": "Select a page from the index."
+    },
+    "search": {
+      "title": "Search",
+      "placeholder": "Search knowledge base...",
+      "noResults": "No results.",
+      "searching": "Searching..."
+    },
+    "skill": {
+      "title": "LLM skill (llm-wiki)",
+      "status": "Checking...",
+      "install": "Install / Update",
+      "installing": "Installing...",
+      "agents": {
+        "hermes": "Hermes (WSL)",
+        "openclaw": "OpenClaw",
+        "claudeCode": "Claude Code"
+      },
+      "checking": "Checking...",
+      "checkStatus": "Check status",
+      "checkAndInstall": "Check and install",
+      "installDone": "check/install complete",
+      "profilesTitle": "Wiki access profiles (secrets stay on disk, never shown)",
+      "profileNamePlaceholder": "profile name",
+      "saveProfile": "Save profile",
+      "profileSaved": "profile saved"
+    },
+    "retry": "Retry (start the server)",
+    "projectLabel": "Project:",
+    "newProjectPlaceholder": "new project...",
+    "projectCreated": "project created",
+    "createProject": "Create",
+    "lastJobError": "Last job: {{msg}}",
+    "tab": {
+      "import": "Import wiki",
+      "docs": "Documents",
+      "wiki": "Wiki",
+      "search": "Search",
+      "skill": "Skill & Access"
+    },
+    "session": {
+      "title": "Вход в базу знаний компании",
+      "intro": "Вы увидите только документы, разрешённые вашими правами в компании. Ответы ассистента используют тот же доступ.",
+      "sso": "Войти с рабочей учётной записью",
+      "ssoWaiting": "Завершите вход в только что открывшемся окне браузера.",
+      "ssoFailed": "Вход не завершён: {{msg}}",
+      "username": "Имя пользователя или email",
+      "password": "Пароль",
+      "submit": "Войти",
+      "signingIn": "Выполняется вход…",
+      "expired": "Сеанс истёк или был отозван. Войдите снова.",
+      "viewingAs": "Знания видны как",
+      "rolesLabel": "Ваши роли",
+      "clearance": "уровень: {{level}}",
+      "admin": "администратор",
+      "noRoles": "нет ролей в компании",
+      "moreRoles": "ещё {{count}}",
+      "fewerRoles": "Свернуть",
+      "logout": "Выйти",
+      "levels": {
+        "public": "публичный",
+        "internal": "внутренний",
+        "confidential": "конфиденциальный",
+        "restricted": "строго конфиденциальный"
+      }
+    },
+    "access": {
+      "tab": "Права доступа",
+      "loading": "Загрузка прав…",
+      "nobody": "никто (права источника не читаются)",
+      "unknownPerson": "пользователь {{id}}…",
+      "pendingUser": "{{name}} (проверяется при сохранении)",
+      "remove": "Убрать {{name}}",
+      "addLabel": "Роль или имя пользователя",
+      "addPlaceholder": "Роль или имя пользователя",
+      "addRole": "Добавить как роль",
+      "addUser": "Добавить как пользователя",
+      "level": "Гриф",
+      "save": "Сохранить",
+      "saved": "Сохранено",
+      "discard": "Отменить изменения",
+      "cancel": "Отмена",
+      "confirm": "Подтвердить и сохранить",
+      "widening": "Это изменение расширяет доступ. Затронуто документов: {{count}}.",
+      "gains": "Смогут видеть: {{who}}",
+      "removedFromList": "Убраны из списка: {{who}}",
+      "sourcesLeave": "Источники, выходящие из коллекции (остаются только их собственные правила): {{list}}",
+      "levelChange": "Гриф: {{from}} → {{to}}",
+      "filterOffEffect": "Каждый документ проекта станет виден всем, кто может открыть проект.",
+      "restrictionLifted": "Снимается ограничение: действуют только оставшиеся правила.",
+      "filterTitle": "Фильтр прав",
+      "filterOn": "Включён.",
+      "filterOff": "Выключен.",
+      "filterOnHint": "Каждый документ виден только тем, кому это разрешают его правила; документы без правил видят только администраторы.",
+      "filterOffHint": "Все, кто может открыть проект, видят все документы. Разметьте документы или создайте коллекции перед включением.",
+      "turnOn": "Включить фильтр",
+      "turnOff": "Выключить фильтр",
+      "gateTitle": "Кто может открыть проект",
+      "gateHint": "Без одной из этих ролей проект вообще не виден.",
+      "gateEmpty": "Все вошедшие пользователи.",
+      "collectionsTitle": "Коллекции",
+      "collectionsHint": "Коллекция даёт одинаковый доступ к целым источникам, например к импортированной ветке вики или папке документов.",
+      "noCollections": "Коллекций пока нет.",
+      "newCollection": "Новая коллекция",
+      "collectionName": "Название коллекции",
+      "sourcesLegend": "Источники коллекции",
+      "noSources": "В проекте пока нет источников: сначала импортируйте вики или папку.",
+      "inOther": "уже в коллекции {{name}}",
+      "sourcesList": "Источники: {{list}}",
+      "whoSees": "Кто может видеть эти документы",
+      "onlyAdmins": "Только администраторы.",
+      "editNamed": "Изменить {{name}}",
+      "deleteNamed": "Удалить {{name}}",
+      "pageHint": "Чтобы задать права отдельного документа, откройте его на вкладке Wiki.",
+      "pageTitle": "Права документа",
+      "pageCollection": "Коллекция {{name}}:",
+      "fromSource": "Прочитано из источника (должны выполняться все):",
+      "or": " или ",
+      "pageWho": "Кто может видеть этот документ",
+      "pageOwn": "Правила этого документа (в дополнение к указанным выше)",
+      "pageOwnEmpty": "Собственных правил нет: решает коллекция."
+    }
+  },
+  "tests": {
+    "title": "System tests",
+    "subtitle": "Verify each subsystem: audio pipeline, STT/TTS, agent, calls, avatar.",
+    "gpuSim": "GPU simulation",
+    "runAll": "Run all",
+    "running": "Running...",
+    "pass": "pass",
+    "fail": "fail",
+    "skip": "skip"
+  },
+  "oauth": {
+    "google": {
+      "title": "Google Calendar — OAuth setup",
+      "steps": [
+        "Go to Google Cloud Console and create a project (or select an existing one).",
+        "Enable the Google Calendar API for the project.",
+        "Create OAuth credentials (Desktop app type) and download the JSON file.",
+        "Paste the contents of the JSON file below.",
+        "Click Authorize: a browser window will open to complete the authorization.",
+        "Paste the authorization code returned by Google.",
+        "Done — the calendar is connected."
+      ]
+    },
+    "outlook": {
+      "title": "Microsoft Outlook Calendar — OAuth setup",
+      "steps": [
+        "Go to Azure Portal and register a new application.",
+        "Add the Calendars.Read permission (delegated) and grant admin consent.",
+        "Copy the Application (client) ID and Directory (tenant) ID.",
+        "Generate a client secret and copy it.",
+        "Paste the credentials below and click Authorize.",
+        "Complete the authorization flow in the browser.",
+        "Done — the Outlook calendar is connected."
+      ]
+    },
+    "wizard": {
+      "back": "Back",
+      "done": "Done",
+      "cancel": "Cancel",
+      "next": "Next",
+      "saving": "Saving...",
+      "step": "Step {{n}}:",
+      "connected": "Account connected! Events will appear in the Meetings section.",
+      "connect": "Connect",
+      "connecting": "Waiting for login...",
+      "deviceCodeLabel": "Code:",
+      "deviceCodeOpen": "Open {{uri}}"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Bridge configuration. Changes take effect after saving; fields marked with a warning require a restart.",
+    "loading": "Loading configuration...",
+    "serverDown": "Control server unreachable: start the bridge from Components.",
+    "needsRestart": "Requires restart",
+    "savedRestartNotice": "Saved. Restart required for:",
+    "restartMain": "Restart bridge",
+    "unsavedChanges": "{{count}} unsaved change(s)",
+    "groups": {
+      "sessionVoice": "Session & voice",
+      "pushToTalk": "Push-to-talk",
+      "copilot": "Copilot",
+      "avatar": "Avatar",
+      "gateway": "Voice gateway",
+      "phone": "Android phone",
+      "gsm": "GSM modem",
+      "hermes": "Hermes agent",
+      "analysis": "Analysis",
+      "meetbot": "Meeting bot",
+      "calendar": "Calendar",
+      "knowledge": "Knowledge",
+      "hfp": "Audio (HFP/device)",
+      "control": "Control server",
+      "misc": "Other"
+    },
+    "params": {
+      "phone_host": "Android app host (IP or hostname of the phone on the local network).",
+      "phone_port": "Android app port (default 8765).",
+      "auth_token": "Bearer token for Android app authentication.",
+      "hfp_input_device": "HFP Bluetooth input device name (mic). Leave null to use system default.",
+      "hfp_output_device": "HFP Bluetooth output device name (speaker). Leave null to use system default.",
+      "sample_rate": "Audio sample rate in Hz (8000 for HFP, 16000 recommended for STT).",
+      "block_ms": "Audio block size in milliseconds (lower = lower latency, higher CPU usage).",
+      "control_host": "Control server host (default 0.0.0.0 to listen on all interfaces).",
+      "control_port": "Control server port (default 8770).",
+      "control_auth_token": "Bearer token for the control server API.",
+      "default_lang": "Default language for STT (e.g. it, en-us). Affects transcription accuracy.",
+      "push_to_talk_enabled": "Enable push-to-talk hotkeys (Shift+F1, Shift+F2).",
+      "push_to_talk_hotkey": "Hotkey for half-duplex mode (speakers). Default: shift+f1.",
+      "push_to_talk_hotkey_fullduplex": "Hotkey for full-duplex mode (headphones). Default: shift+f2.",
+      "push_to_talk_hotkey_limited": "Hotkey for limited/simulation mode. Default: shift+f3.",
+      "ptt_turn_pause_s": "Seconds of silence before PTT considers the user has finished speaking.",
+      "ptt_post_tts_pause_s": "Pause in seconds after TTS playback before re-enabling the microphone.",
+      "ptt_listen_warmup_s": "Microphone warm-up time in seconds before PTT starts listening.",
+      "ptt_input_device": "Microphone device name for PTT. Null = system default.",
+      "ptt_output_device": "Speaker device name for PTT. Null = system default.",
+      "copilot_enabled": "Enable the videocall copilot (Shift+F4).",
+      "push_to_talk_hotkey_copilot": "Hotkey to toggle the copilot. Default: shift+f4.",
+      "copilot_use_acp": "Use ACP agent for copilot suggestions (true) or direct HTTP Hermes (false).",
+      "copilot_loopback_samplerate": "Sample rate for loopback capture (system audio from the call).",
+      "copilot_lang": "Language for copilot STT (e.g. it, en-us).",
+      "copilot_num_responses": "Number of suggested replies generated by the copilot per turn.",
+      "copilot_audio_reply": "Speak copilot suggestions aloud via TTS.",
+      "copilot_tts_output_device": "Output device for copilot TTS audio.",
+      "copilot_font_size": "Copilot overlay font size (pt).",
+      "copilot_scroll_speed": "Copilot overlay scroll speed (pixels per second).",
+      "copilot_hide_from_capture": "Hide copilot overlay from screen capture (OBS, Meet, Teams).",
+      "copilot_preamble": "System preamble injected before each copilot agent call.",
+      "avatar_enabled": "Enable the avatar video worker (MuseTalk).",
+      "avatar_dir": "Directory containing avatar persona folders.",
+      "avatar_persona": "Default persona name to activate on startup.",
+      "avatar_audio_device": "Audio output device used by the avatar worker.",
+      "avatar_gpu_index": "GPU index for the avatar worker (null = auto).",
+      "avatar_prepare_timeout_s": "Max seconds to wait for avatar clip preparation.",
+      "hermes_base_url": "Hermes agent HTTP base URL (e.g. http://localhost:8780).",
+      "hermes_mode": "Hermes connection mode: acp (WSL subprocess) or http (external server).",
+      "acp_enabled": "Enable ACP agent mode (Hermes runs as a subprocess inside WSL).",
+      "acp_wsl_distro": "WSL distribution name for the ACP agent (e.g. Ubuntu).",
+      "acp_wsl_command": "Shell command to start the ACP agent inside WSL.",
+      "acp_cwd": "Working directory for the ACP agent inside WSL.",
+      "acp_init_timeout_s": "Seconds to wait for ACP agent initialization before giving up.",
+      "acp_response_timeout_s": "Max seconds to wait for a single ACP agent response.",
+      "acp_voice_preamble": "System preamble appended to each ACP voice session.",
+      "barge_in_enabled": "Enable barge-in: user can interrupt the agent while it is speaking.",
+      "barge_in_energy_threshold": "Energy level (RMS) above which barge-in triggers.",
+      "gateway_enabled": "Enable the voice gateway WebSocket server for the Android app.",
+      "gateway_host": "Gateway bind host.",
+      "gateway_port": "Gateway WebSocket port (default 8771).",
+      "gateway_auth_token": "Bearer token for gateway connections.",
+      "gateway_media_port": "Gateway media (RTP) port (default 8772).",
+      "call_transport": "Call transport: auto, gsm or android.",
+      "gsm_port": "Serial port for the GSM modem (e.g. COM6).",
+      "gsm_baud": "Baud rate for the GSM modem serial connection.",
+      "gsm_record_window_s": "Seconds to record audio after the GSM call connects.",
+      "gsm_answer_wait_s": "Seconds to wait for the call to be answered.",
+      "gsm_tts_file": "Path to the WAV file played to the remote party via GSM.",
+      "gsm_record_id": "Identifier prefix for GSM call recordings.",
+      "gsm_play_volume": "Playback volume for GSM audio (0.0–1.0).",
+      "gsm_auto_answer": "Auto-answer incoming GSM calls.",
+      "meetbot_enabled": "Enable the meeting bot (joins Meet/Teams calls).",
+      "meetbot_backend": "Meeting bot backend: selenium or playwright.",
+      "meetbot_display_name": "Display name shown by the bot in the meeting.",
+      "meetbot_artifacts_dir": "Directory where meeting recordings and transcripts are saved.",
+      "calendar_google_client_id": "Google Calendar OAuth client ID.",
+      "calendar_google_client_secret": "Google Calendar OAuth client secret.",
+      "calendar_ms_client_id": "Microsoft Calendar OAuth application (client) ID.",
+      "calendar_ms_tenant": "Microsoft tenant ID (or common for multi-tenant).",
+      "calendar_poll_s": "Calendar polling interval in seconds.",
+      "knowledge_api_url": "Wikibridge knowledge server URL (default http://localhost:8775).",
+      "knowledge_api_token": "Bearer token for the wikibridge API.",
+      "knowledge_root": "Local path to the wikibridge data directory.",
+      "knowledge_serve_cmd": "Command to start the wikibridge server.",
+      "analysis_artifacts_dir": "Directory where video/audio analysis artifacts are stored.",
+      "analysis_ffmpeg_path": "Path to ffmpeg binary (null = use system PATH).",
+      "analysis_ytdlp_path": "Path to yt-dlp binary (null = use system PATH).",
+      "analysis_segment_s": "Audio segment length in seconds for parallel transcription.",
+      "analysis_chunk_chars": "Text chunk size in characters for LLM analysis.",
+      "hermes_start_cmd": "Shell command to start Hermes in HTTP mode.",
+      "hermes_stop_cmd": "Shell command to stop Hermes in HTTP mode.",
+      "poll_status_interval_s": "Interval in seconds for polling component status.",
+      "tts_speed": "TTS playback speed multiplier (1.0 = normal).",
+      "avatar_fps": "Frames per second generated by the avatar. The most direct lever on GPU load: UNet/VAE work scales with the NUMBER of frames, so 16 instead of 25 removes a third of it. Lip sync stays aligned (audio features are resampled). Requires restarting the worker."
+    },
+    "avatarFps": {
+      "nativo": "{{fps}} fps — native, full load",
+      "leggero": "{{fps}} fps — {{carico}}% GPU load",
+      "consigliato": "{{fps}} fps — {{carico}}% load (recommended)",
+      "minimo": "{{fps}} fps — {{carico}}% load, choppy"
+    }
+  }
+}

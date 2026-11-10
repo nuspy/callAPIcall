@@ -1,0 +1,1072 @@
+{
+  "app": {
+    "title": "callAPIcall",
+    "subtitle": "Control Center"
+  },
+  "status": {
+    "connected": "connected",
+    "disconnected": "disconnected",
+    "serverReachable": "Control server reachable",
+    "serverDown": "Control server down"
+  },
+  "language": {
+    "label": "Language",
+    "select": "Select language"
+  },
+  "sidebar": {
+    "session": "Session",
+    "calls": "Calls",
+    "components": "Components",
+    "tests": "Tests",
+    "voices": "Voices",
+    "personas": "Personas",
+    "studio": "Studio",
+    "meetings": "Meetings",
+    "knowledge": "Knowledge",
+    "analysis": "Analysis",
+    "voiceEngine": "Motori voce",
+    "llmProviders": "Provider LLM",
+    "settings": "Settings"
+  },
+  "common": {
+    "save": "Save",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "retry": "Retry",
+    "back": "Back",
+    "reload": "Reload",
+    "close": "Close",
+    "loading": "Loading...",
+    "start": "Start",
+    "stop": "Stop",
+    "delete": "Delete",
+    "refresh": "Refresh",
+    "next": "Next",
+    "done": "Done",
+    "add": "Add",
+    "create": "Create",
+    "upload": "Upload",
+    "search": "Search",
+    "connect": "Connect"
+  },
+  "calls": {
+    "title": "Outbound calls",
+    "subtitle": "Place a call with the agent. Transport selected automatically: GSM modem or Android phone.",
+    "transport": {
+      "detected": "Detected transport",
+      "none": "none",
+      "mode": "(mode {{mode}})",
+      "detect": "Detect"
+    },
+    "transportMode": {
+      "auto": "auto",
+      "forceGsm": "force GSM",
+      "forceAndroid": "force Android"
+    },
+    "number": "Number to call, e.g. +1555xxxxxxx",
+    "voiceDefault": "Voice (config default)",
+    "calling": "Starting call...",
+    "call": "Call",
+    "hangup": "Hang up",
+    "phoneState": "Phone state",
+    "unknown": "unknown",
+    "noNumber": "Enter the number to call.",
+    "langs": {
+      "it": "italiano",
+      "en-us": "english",
+      "fr-fr": "francais",
+      "es": "espanol"
+    }
+  },
+  "session": {
+    "title": "Voice session",
+    "subtitle": "Start a conversation with the agent: half-duplex (Shift+F1, speakers) or full-duplex (Shift+F2, headphones with barge-in).",
+    "serverDown": "Control server unreachable: check the bridge component in Components.",
+    "phase": {
+      "idle": "idle",
+      "listening": "listening",
+      "reasoning": "thinking",
+      "speaking": "speaking"
+    },
+    "mode": {
+      "full": "full-duplex (headphones)",
+      "limited": "limited (simulation)",
+      "half": "half-duplex (speakers)"
+    },
+    "closeSession": "Close session",
+    "halfDuplex": {
+      "title": "Half-duplex (speakers)",
+      "desc": "Like Shift+F1: mic muted while agent speaks, no echo with speakers."
+    },
+    "fullDuplex": {
+      "title": "Full-duplex (headphones)",
+      "desc": "Like Shift+F2: continuous listening, you can interrupt the agent (barge-in)."
+    },
+    "loading": "Operation in progress (first start loads models, may take tens of seconds)...",
+    "sessionAlready": "A session is already active.",
+    "avatar": {
+      "title": "Avatar video",
+      "desc": "Mostra l'avatar con labiale sincronizzato durante la conversazione (Ctrl+Shift+F1/F2), come nelle video call.",
+      "persona": "Persona",
+      "choosePersona": "Scegli una persona",
+      "needPersona": "Seleziona una persona per usare l'avatar.",
+      "previewTitle": "Anteprima avatar"
+    },
+    "copilot": {
+      "title": "Videocall copilot (Shift+F4)",
+      "desc": "Listens to the interlocutor (loopback) and suggests replies; with an active persona also speaks via the avatar.",
+      "active": "active",
+      "inactive": "off",
+      "enable": "Enable",
+      "disable": "Disable",
+      "noProject": "no project",
+      "project": "project: {{name}}",
+      "saveMeeting": "Save meeting to wiki",
+      "saving": "Analyzing and saving...",
+      "saved": "saved: {{path}}"
+    },
+    "llm": {
+      "override": "Override del modello di Hermes",
+      "overrideOn": "callAPIcall imposta il modello di Hermes.",
+      "overrideOff": "Il modello lo decide Hermes (config.yaml): callAPIcall non lo tocca più.",
+      "inMemory": "in memoria",
+      "swapUnload": "Da scaricare",
+      "swapLoad": "Da caricare",
+      "swapConfirm": "Scarica e carica",
+      "swapCancel": "Lascia com'è",
+      "swapKept": "Invariato: resta in memoria il modello di prima."
+    }
+  },
+  "components": {
+    "title": "Components",
+    "subtitle": "Status and control of system processes. Bridge restarts via the run-ptt supervisor; stop keeps it down until you press Start.",
+    "state": {
+      "running": "running",
+      "loading": "loading",
+      "stopping": "stopping",
+      "blocked": "blocked",
+      "error": "error",
+      "stopped": "stopped",
+      "disabled": "disabled",
+      "unreachable": "unreachable",
+      "suspended": "sospeso"
+    },
+    "bridge": {
+      "title": "Bridge (call-bridge)",
+      "desc": "Single instance: control server (:8770), PTT hotkey, overlay, model keep-alive.",
+      "session": "Voice session active ({{mode}}, phase {{phase}}).",
+      "restart": "Restart",
+      "stop": "Stop",
+      "start": "Start",
+      "notStarted": "Bridge did not start within 20s: check ptt-supervisor.log.",
+      "starting": "Removing sentinel and waiting for supervisor...",
+      "startedSupervisor": "Bridge restarted (supervisor active).",
+      "startingSupervisor": "Supervisor not active: starting it...",
+      "started": "Bridge started."
+    },
+    "gateway": {
+      "title": "Voice gateway",
+      "desc": "WebSocket for Android app (:8771) + media server (:8772).",
+      "restartBridge": "Restart bridge"
+    },
+    "voiceEngine": {
+      "title": "Motori voce (nativi, nel bridge)",
+      "desc": "La sintesi vocale (TTS) gira dentro il bridge. La trascrizione (STT) è un processo unico, sempre attivo, usato da dettatura e sessioni voce. Esposti su :8720.",
+      "nativeNote": "Il TTS gira dentro il bridge e lo STT è un processo gestito dal bridge: non si avviano né si fermano separatamente.",
+      "restartBridge": "Riavvia bridge",
+      "sttLoaded": "loaded ({{model}})",
+      "sttNotLoaded": "not loaded",
+      "ttsLoaded": "loaded ({{model}})",
+      "ttsNotLoaded": "not loaded",
+      "idle": "idle for {{s}}s"
+    },
+    "hermes": {
+      "title": "Hermes (agent)",
+      "desc": "Conversation brain: ACP agent in WSL or HTTP server (:8780).",
+      "start": "Start",
+      "restart": "Restart"
+    },
+    "avatar": {
+      "title": "Avatar worker (MuseTalk)",
+      "desc": "Video worker for persona lipsync on the virtual webcam.",
+      "persona": "active persona: {{persona}}",
+      "start": "Avvia",
+      "stop": "Ferma",
+      "noPersonas": "Nessuna identità: creane una in Identità",
+      "preparing": "Preparazione di {{persona}} in corso…",
+      "vramNote": "Richiede VRAM libera: se un LLM occupa la GPU l'avvio fallisce con OOM CUDA. Usa «Libera memoria» o scarica il modello."
+    },
+    "systemRestart": {
+      "title": "Riavvio completo del sistema",
+      "desc": "Ferma le istanze vLLM e libera la VRAM, scarica i modelli di LM Studio, chiude worker avatar, agente, bridge e Control Center, rimuove le sentinelle e riavvia i servizi. Bridge e GUI ripartono da soli: circa 1-2 minuti, durante i quali voce e chiamate non sono disponibili.",
+      "button": "Restart",
+      "confirm": "Confermi? Clicca di nuovo",
+      "running": "Avvio del riavvio completo…",
+      "started": "Riavvio completo in corso: bridge e Control Center ripartono tra poco (log in call-bridge\restart-all.log)."
+    },
+    "pushToTalk": {
+      "title": "Push-to-talk (hotkey)",
+      "desc": "Scorciatoie per sessioni voce, avatar e copilota. «Sospendi» le toglie, «Riprendi» le rimette."
+    },
+    "incomingCalls": {
+      "title": "Chiamate in arrivo",
+      "desc": "Il bridge vigila sulle chiamate in arrivo e risponde. «Sospendi» lo ferma, «Riprendi» lo riattiva."
+    },
+    "suspend": {
+      "desc": "Chiude worker avatar, motori TTS e agente (restituendo VRAM e RAM) e la sessione voce, toglie le scorciatoie push-to-talk, ferma il server dei motori voce e il watcher delle chiamate in arrivo, e mette in pausa il riscaldamento automatico dei motori. Restano attivi la trascrizione (STT), la dettatura (sempre attiva, usa lo stesso STT), il modello in LM Studio e questa interfaccia. Nulla si riaccende da solo: serve «Riprendi». La sospensione resta anche dopo i riavvii, finché non premi «Riprendi»."
+    },
+    "dictation": {
+      "title": "Dettatura (Alt+Spazio)",
+      "desc": "Tieni premuta la hotkey, parla, rilascia: il testo viene incollato dove stai scrivendo. È sempre attiva e usa lo stesso modello di trascrizione delle sessioni voce, sempre in memoria: «Sospendi» non la tocca.",
+      "model": "Modello: {{model}}",
+      "vram": "VRAM {{mb}} MB",
+      "last": "Ultima dettatura: {{audio}} s di audio trascritti in {{ms}} ms ({{xrt}}× tempo reale)"
+    }
+  },
+  "voices": {
+    "title": "Cloned voices",
+    "subtitle": "Gestisci i campioni per la clonazione voce (Chatterbox), in modo nativo. Le voci clonate si assegnano alle persone.",
+    "engineDown": "Motori voce non raggiungibili su :8720 — riavvia il bridge da Componenti.",
+    "new": {
+      "title": "New voice",
+      "namePlaceholder": "Voice name (letters, numbers, - and _)",
+      "nameHint": "Use only letters, numbers, hyphens and underscores.",
+      "record": "Record",
+      "upload": "Upload file"
+    },
+    "record": {
+      "start": "Start recording",
+      "stop": "Stop",
+      "hint": "Speak naturally for {{min}}-{{max}} seconds in a quiet environment.",
+      "short": "Recording too short: at least {{min}} seconds needed.",
+      "micFailed": "Microphone access failed."
+    },
+    "upload": {
+      "button": "Choose audio file",
+      "hint": "WAV, MP3, FLAC or OGG with 5-15 seconds of clean speech.",
+      "badFormat": "Unsupported format: use WAV, MP3, FLAC or OGG."
+    },
+    "saving": "Saving...",
+    "nameInvalid": "Invalid name: use letters, numbers, - and _.",
+    "sampleText": "Sample text",
+    "list": {
+      "title": "Your cloned voices",
+      "empty": "No cloned voices. Create one above."
+    },
+    "delete": "Delete voice",
+    "setActive": "Imposta attiva",
+    "active": "Attiva",
+    "cloningMissing": "Nessun motore di voice cloning (Chatterbox o ZONOS2) è scaricato. Da qui puoi gestire le voci clonate, ma per la sintesi serve scaricarne uno dalla sezione Motori voce.",
+    "deleteConfirm": "Eliminare la voce \"{{name}}\"?"
+  },
+  "ttsEngine": {
+    "label": "Motore TTS",
+    "placeholder": "Scegli motore...",
+    "loading": "carico {{motore}} in memoria…",
+    "ready": "in memoria{{tempo}}",
+    "loadFailed": "caricamento fallito",
+    "unloaded": "liberata la memoria di: {{motori}}"
+  },
+  "virtualCam": {
+    "notFound": "\"OBS Virtual Camera\" non trovata tra le webcam.",
+    "attaching": "Aggancio della camera virtuale...",
+    "off": "Avatar spento — avvialo per vedere la camera virtuale."
+  },
+  "personas": {
+    "title": "Personas",
+    "subtitle": "Each persona links a name, a voice and character videos. The avatar shows it on the virtual webcam with synced lipsync.",
+    "serverDown": "Control server unreachable.",
+    "new": {
+      "title": "New persona",
+      "namePlaceholder": "Name (letters, numbers, - and _)",
+      "voicePlaceholder": "Voice...",
+      "hint": "After creation upload at least one .mp4 video (half-body, face clearly visible).",
+      "nameInvalid": "Invalid name: use letters, numbers, - and _.",
+      "mpOnly": "Only .mp4 files."
+    },
+    "list": {
+      "empty": "No personas. Create one above."
+    },
+    "badge": {
+      "avatarActive": "avatar active"
+    },
+    "voice": "Voice:",
+    "noVoice": "No voice",
+    "clips": "Videos ({{count}})",
+    "addClip": "Add clip",
+    "uploadingClip": "Uploading...",
+    "startAvatar": "Start avatar",
+    "starting": "Preparing...",
+    "stopAvatar": "Stop avatar",
+    "noClip": "Upload at least one video clip first",
+    "deleteConfirm": "Eliminare la persona \"{{name}}\" e i suoi video?",
+    "removeClipConfirm": "Rimuovere la clip \"{{name}}\"?",
+    "identity": {
+      "edit": "Personalità",
+      "hasPersonality": "personalità",
+      "projectBadge": "sapere: {{project}}",
+      "hint": "Personalità e prompt usati dalla modalità voce diretta LM Studio (Ctrl+Shift+F4/F5). Il progetto conoscenza collega la memoria e il sapere della persona.",
+      "personality": "Personalità e modo di parlare",
+      "personalityPlaceholder": "Come parla e si comporta questa persona: tono, carattere, tic verbali, valori...",
+      "systemPrompt": "Prompt di sistema (opzionale)",
+      "systemPromptPlaceholder": "Istruzioni di sistema aggiuntive per il modello...",
+      "knowledgeProject": "Progetto conoscenza",
+      "noProject": "Nessun progetto",
+      "createProject": "Crea progetto",
+      "docsPersonality": "personalità da testi",
+      "knowledgeBadge": "{{count}} frammenti di sapere"
+    },
+    "lmstudio": {
+      "title": "Chat avatar (Ctrl+Shift+F4/F5)",
+      "subtitle": "Conversazione vocale diretta e non agentica su un LLM locale: parli col modello invece che con l'agente Hermes.",
+      "enabled": "Attiva la chat avatar (registra le hotkey Ctrl+Shift+F4/F5)",
+      "baseUrl": "Endpoint (base URL)",
+      "model": "Modello",
+      "modelPlaceholder": "(vuoto = primo modello caricato in LM Studio)",
+      "embedModel": "Modello di embedding (RAG semantico)",
+      "embedModelPlaceholder": "(vuoto = solo recall lessicale)",
+      "embedModelHint": "Id di un modello di embedding caricato in LM Studio; abilita il recall semantico del sapere delle persone.",
+      "systemPrompt": "Prompt di sistema base",
+      "systemPromptPlaceholder": "Istruzioni di sistema comuni a tutte le persone...",
+      "compaction": "Soglia compattazione contesto (token)",
+      "saved": "Salvato",
+      "restartHint": "Riavvia il bridge per applicare la modifica.",
+      "backend": "Backend del modello",
+      "backend_lmstudio": "LM Studio",
+      "backend_vllm": "vLLM",
+      "backendHint": "Se il backend scelto è spento viene avviato; se non ha un modello caricato viene caricato quello qui sotto. Se ne ha già uno, si usa quello. L'agente Hermes non passa di qui.",
+      "modelAuto": "(automatico: usa quello caricato)",
+      "modelLoaded": "già caricato",
+      "modelInUse": "In memoria adesso: {{model}} — è quello che verrà usato.",
+      "modelWillLoad": "Nessun modello caricato: verrà caricato quello selezionato.",
+      "swapAsk": "In memoria c'è {{loaded}}. Per usare quello scelto va scaricato: la VRAM ne tiene uno solo.",
+      "swapDo": "Scarica quello in memoria e carica questo",
+      "swapBusy": "Scambio in corso…",
+      "managerUrl": "URL del manager vLLM",
+      "managerHint": "Il servizio vLLM Manager gestisce avvio, VRAM, lunghezza contesto e swap dei modelli: qui si sceglie solo quale modello usare.",
+      "saveRejected": "Non salvato: {{campi}}"
+    },
+    "ingest": {
+      "title": "Sapere da documenti",
+      "import": "Importa documento/libro",
+      "hint": "PDF, EPUB, DOCX, TXT, MD. Estrae la personalità e costruisce il recall (RAG). Richiede LM Studio acceso.",
+      "running": "Importazione in corso",
+      "done": "Importato: {{indexed}} frammenti, {{dropped}} scartati ({{rag}})",
+      "error": "Errore importazione"
+    }
+  },
+  "voiceEngine": {
+    "suspended": "componenti sospesi: premi Riprendi",
+    "title": "Motori voce — STT/TTS",
+    "subtitle": "Stato modelli in VRAM, voci native disponibili e scelta GPU/CPU. Motori STT/TTS nativi (nessuna app esterna).",
+    "stt": {
+      "title": "Modello di trascrizione (STT)",
+      "desc": "Piu' grande = piu' accurato e piu' VRAM. Vale per le sessioni voce e per la dettatura (Alt+Spazio).",
+      "precisionLabel": "Precisione STT",
+      "prec16": "float16 — pesi dimezzati",
+      "prec32": "float32 — precisione piena",
+      "prec32gpu": "float32 — precisione piena, pesi doppi",
+      "cpuNote": "Su CPU l'STT usa sempre float32: e' l'unica precisione disponibile.",
+      "loading": "carico…",
+      "current": "In memoria: {{modello}}",
+      "none": "nessuno",
+      "reloadNote": "Cambiando modello, device o precisione l'STT si ricarica subito."
+    },
+    "engineDown": "Motore vocale non raggiungibile su :8720 — avvialo da Componenti.",
+    "defaultVoice": {
+      "title": "Voce delle sessioni voce (Shift+F1/F2)",
+      "desc": "Engine TTS attivo e voce di default per le sessioni solo voce. Le sessioni avatar usano la voce della persona.",
+      "label": "Voce di default",
+      "placeholder": "Scegli una voce…"
+    },
+    "vram": {
+      "title": "Models in VRAM",
+      "sttLabel": "Speech-to-Text",
+      "ttsLabel": "Text-to-Speech",
+      "ttsSelected": "selected: {{model}}",
+      "loaded": "loaded ({{model}})",
+      "notLoaded": "not loaded",
+      "idle": "Idle for {{s}}s (auto-unload at {{limit}}s).",
+      "load": "Load models",
+      "loading": "Loading...",
+      "unload": "Unload all",
+      "engines": "Motori TTS in memoria: {{lista}}",
+      "noEngines": "Nessun motore TTS in memoria",
+      "hotSwapNote": "Cambiando motore qui sopra il precedente viene scaricato dalla VRAM e il nuovo caricato subito: resta caldo un motore solo.",
+      "sttReloaded": "Ricaricato solo lo STT: {{dettagli}}. Gli altri componenti restano sospesi."
+    },
+    "voices": {
+      "title": "Available voices",
+      "engine": "(engine {{engine}}, model {{model}})",
+      "none": "No voices (chatterbox engine without cloned voices? See Voices section)."
+    },
+    "device": {
+      "shared": "VRAM shared → esegue su CPU",
+      "dedicated": "VRAM dedicata (GPU)",
+      "sharedWarn": "gira su CPU, non su GPU",
+      "loading": "carico…",
+      "inMemory": "in memoria",
+      "loadFailed": "errore di caricamento",
+      "suspended": "sospeso",
+      "suspendedNote": "Componenti sospesi: le modifiche si salvano e valgono al «Riprendi»."
+    }
+  },
+  "studio": {
+    "title": "TTS + video studio",
+    "subtitle": "Test personas: write text and make them speak with their video (MuseTalk lipsync). Video goes to the virtual webcam.",
+    "serverDown": "Control server unreachable.",
+    "chooseIdentity": "Choose persona...",
+    "stopAvatar": "Stop avatar",
+    "startAvatar": "Start avatar",
+    "startingClip": "Preparing clip (may take minutes)...",
+    "avatarActive": "avatar active: {{persona}}",
+    "textPlaceholder": "Text to speak...",
+    "speak": "Speak with video",
+    "speaking": "In progress...",
+    "interrupt": "Interrupt",
+    "audioOnly": "audio only:",
+    "noClip": "Persona has no video clips: upload one in Personas",
+    "spokenInfo": "Spoken with voice {{voice}} ({{dur}}s).",
+    "howItWorks": "How it works: choose the persona, write text and press Speak with video. The avatar starts automatically. First time per clip takes minutes to prepare; then stays in cache. In a video call select OBS Virtual Camera as the webcam in Meet/Zoom/Teams.",
+    "previewEngine": "Anteprima con",
+    "previewVoice": "Voce"
+  },
+  "analysis": {
+    "title": "Video / audio analysis",
+    "subtitle": "Upload a recording or paste a link (YouTube, shared recordings): full transcript, highlights and identified tasks.",
+    "phases": {
+      "queued": "queued",
+      "downloading": "downloading from link",
+      "extracting": "extracting audio",
+      "transcribing": "transcribing",
+      "diarizing": "identifying speakers",
+      "analyzing": "analyzing (summary, highlights, tasks)",
+      "done": "done",
+      "error": "error",
+      "running": "running"
+    },
+    "tabs": {
+      "summary": "Summary",
+      "highlights": "Highlights ({{count}})",
+      "tasks": "Tasks ({{count}})",
+      "transcript": "Transcript"
+    },
+    "form": {
+      "title": "Title (optional)",
+      "url": "https://... (YouTube, recording link or file)",
+      "analyzeUrl": "Analyze URL",
+      "uploadFile": "Upload file",
+      "starting": "Starting analysis...",
+      "badUrl": "Enter a valid http(s) URL.",
+      "speakers": "Voices (0 = auto-detect)"
+    },
+    "history": {
+      "title": "Previous analyses",
+      "empty": "No analyses yet."
+    },
+    "back": "Back",
+    "tasks": {
+      "none": "No tasks identified."
+    },
+    "transcript": {
+      "loading": "Loading transcript..."
+    },
+    "deleteConfirm": "Delete this analysis and its artifacts?",
+    "deleteLabel": "Delete analysis",
+    "speakers": {
+      "hint": "{{n}} voices recognised. Give them a name to see it in the transcript and in the tasks.",
+      "namePlaceholder": "name (optional)",
+      "save": "Save names"
+    }
+  },
+  "meetings": {
+    "title": "Meetings",
+    "subtitle": "Participate in Google Meet or MS Teams meetings with the bot. The bot joins the call, transcribes and analyzes the conversation.",
+    "serverDown": "Control server unreachable.",
+    "botStates": {
+      "idle": "idle",
+      "joining": "joining",
+      "joined": "joined",
+      "leaving": "leaving",
+      "error": "error",
+      "recording": "recording",
+      "analyzing": "analyzing"
+    },
+    "analysisLabels": {
+      "queued": "queued",
+      "extracting": "extracting audio",
+      "transcribing": "transcribing",
+      "analyzing": "analyzing",
+      "done": "done",
+      "error": "error"
+    },
+    "active": {
+      "title": "Active meeting",
+      "bot": "Bot: {{state}}",
+      "leaveBot": "Remove bot",
+      "analyze": "Analyze now",
+      "analyzing": "Analyzing...",
+      "noAnalysis": "Analysis not yet available.",
+      "tabs": {
+        "summary": "Summary",
+        "highlights": "Highlights",
+        "agreements": "Agreements",
+        "tasks": "Tasks",
+        "transcript": "Transcript"
+      }
+    },
+    "join": {
+      "title": "Join a meeting",
+      "url": "Meeting URL (Meet/Teams)",
+      "projectLabel": "Knowledge project (optional)",
+      "noProject": "No project",
+      "join": "Join",
+      "joining": "Joining...",
+      "titlePlaceholder": "Title (optional)",
+      "urlPlaceholder": "https://meet.google.com/... (Teams and Zoom coming soon)"
+    },
+    "calendar": {
+      "title": "Calendar",
+      "loading": "Loading...",
+      "error": "Error loading calendar.",
+      "empty": "No upcoming events.",
+      "joinMeeting": "Join meeting"
+    },
+    "history": {
+      "title": "Past meetings",
+      "empty": "No past meetings.",
+      "insertWiki": "Add to wiki",
+      "inserting": "Saving to wiki...",
+      "deleteConfirm": "Delete this meeting?"
+    },
+    "oauthSetup": "Calendar integration — OAuth setup",
+    "tabs": {
+      "active": "Active",
+      "join": "Join",
+      "calendar": "Calendar",
+      "history": "History"
+    },
+    "back": "Back",
+    "participants": "{{n}} participants",
+    "segments": "{{n}} interventions",
+    "projectSelect": "project...",
+    "projectOption": "project: {{name}}",
+    "wikiTitleAlready": "Already in wiki ({{path}}): republish",
+    "wikiTooltip": "Adds content, agreements and tasks to the project wiki",
+    "wikiPushing": "Adding...",
+    "wikiPushRepublish": "Wiki (republish)",
+    "noAgreements": "No agreements recorded (meetings analyzed before this feature have no agreements: re-analyze if needed).",
+    "noTasks": "No tasks identified.",
+    "loadingTranscript": "Loading transcript...",
+    "waitingSpeech": "Waiting for speech...",
+    "leaveBtn": "Leave and analyze",
+    "calendarTitle": "Upcoming meetings from calendars",
+    "noCalendar": "Connect Google and/or Outlook to see events and choose which meetings the bot joins automatically. First setup is guided: use the gear button next to each provider.",
+    "noEvents": "No events in the next 7 days.",
+    "noLink": "no link",
+    "autoJoin": "auto",
+    "joinNow": "Join now",
+    "deviceCodeClose": "Close",
+    "deviceCodePrompt": "Outlook: vai su {{uri}} e inserisci il codice {{code}}.",
+    "deleteLabel": "Delete meeting",
+    "lastError": "Last attempt: {{msg}}",
+    "botState": {
+      "idle": "no meeting",
+      "joining": "joining...",
+      "waiting_admit": "in waiting room (an organizer must admit the bot)",
+      "in_call": "in meeting",
+      "leaving": "leaving...",
+      "ended": "ended",
+      "error": "error"
+    },
+    "analysisState": {
+      "pending": "analysis not run",
+      "analyzing": "analysis in progress...",
+      "done": "analyzed",
+      "error": "analysis failed"
+    },
+    "tab": {
+      "summary": "Summary",
+      "highlights": "Highlights ({{count}})",
+      "agreements": "Agreements ({{count}})",
+      "tasks": "Tasks ({{count}})",
+      "transcript": "Transcript"
+    }
+  },
+  "knowledge": {
+    "title": "Knowledge",
+    "subtitle": "Import wiki pages, documents and web content into the local knowledge base for use by the AI agent.",
+    "serverDown": "Knowledge server (wikibridge) is not running on :8775.",
+    "serverDownHint": "Start it with: cd C:\\\\Projects\\\\wikibridge && python -m wikibridge serve",
+    "sections": {
+      "import": "Import",
+      "docs": "Documents",
+      "wiki": "Wiki",
+      "search": "Search",
+      "skill": "Skill"
+    },
+    "auth": {
+      "label": "Auth profile",
+      "none": "Public (no auth)",
+      "title": "Authentication profiles",
+      "add": "Add profile",
+      "fields": {
+        "none": "(none)",
+        "bearer": "Bearer token",
+        "basic": "Username / Password",
+        "cookie": "Cookie string",
+        "header": "Custom header"
+      }
+    },
+    "import": {
+      "title": "Import from URL",
+      "urlPlaceholder": "https://... (wiki page, Confluence, Notion, GitHub wiki)",
+      "depth": "Max depth",
+      "scope": "Scope",
+      "scopeOptions": {
+        "page": "Page only",
+        "subtree": "Subtree",
+        "space": "Full space/namespace"
+      },
+      "maxPages": "Max pages",
+      "authProfile": "Auth profile",
+      "start": "Import",
+      "starting": "Starting...",
+      "progress": "Progress",
+      "history": "Import history",
+      "empty": "No imports yet.",
+      "sync": "Sync",
+      "syncing": "Syncing...",
+      "refreshPage": "Refresh page",
+      "cancel": "Cancel",
+      "deleteConfirm": "Delete this import?",
+      "depthLabel": "Depth (links to follow)",
+      "depth0": "0 - this page only",
+      "depth1": "1 - + linked pages",
+      "depth2": "2 - two levels",
+      "depth3": "3 - three levels (max)",
+      "scopeLabel": "Scope",
+      "scopePage": "page",
+      "scopeSubtree": "subtree/category",
+      "scopeSpace": "entire space/namespace",
+      "maxPagesLabel": "Max pages",
+      "authLabel": "Access",
+      "authPublic": "public (none)",
+      "importBtn": "Import",
+      "hint": "Defaults designed for instant RAG: paste a link and press Import. The wiki type is detected automatically.",
+      "started": "import started",
+      "historyTitle": "Import history",
+      "truncated": "(truncated)",
+      "syncTitle": "Incremental sync (re-fetches only changed pages)",
+      "syncStarted": "sync started"
+    },
+    "docs": {
+      "title": "Upload documents",
+      "hint": "Supports PDF, DOCX, PPTX, XLSX, HTML and plain text files.",
+      "upload": "Upload files",
+      "uploading": "Uploading...",
+      "dir": "Import directory",
+      "dirPlaceholder": "C:\\\\path\\\\to\\\\folder",
+      "dirHint": "Import all supported files in the folder.",
+      "importDir": "Import",
+      "empty": "No documents yet.",
+      "processing": "\"{{name}}\" being processed",
+      "uploadFile": "Upload file",
+      "ingestStarted": "ingest started",
+      "drain": "Catalog backlog (_pending)",
+      "drainDone": "backlog cataloging complete",
+      "drainHint": "Runs LM Studio cataloging left in queue (e.g. imports done by the skill in agent mode)."
+    },
+    "wiki": {
+      "title": "Wiki tree",
+      "empty": "No pages yet. Import a URL or upload documents.",
+      "loading": "Loading...",
+      "refresh": "Refresh",
+      "back": "Back to tree",
+      "refreshTitle": "Re-fetch this page from the source wiki",
+      "updated": "page updated",
+      "unchanged": "page unchanged",
+      "selectPage": "Select a page from the index."
+    },
+    "search": {
+      "title": "Search",
+      "placeholder": "Search knowledge base...",
+      "noResults": "No results.",
+      "searching": "Searching..."
+    },
+    "skill": {
+      "title": "LLM skill (llm-wiki)",
+      "status": "Checking...",
+      "install": "Install / Update",
+      "installing": "Installing...",
+      "agents": {
+        "hermes": "Hermes (WSL)",
+        "openclaw": "OpenClaw",
+        "claudeCode": "Claude Code"
+      },
+      "checking": "Checking...",
+      "checkStatus": "Check status",
+      "checkAndInstall": "Check and install",
+      "installDone": "check/install complete",
+      "profilesTitle": "Wiki access profiles (secrets stay on disk, never shown)",
+      "profileNamePlaceholder": "profile name",
+      "saveProfile": "Save profile",
+      "profileSaved": "profile saved"
+    },
+    "retry": "Retry (start the server)",
+    "projectLabel": "Project:",
+    "newProjectPlaceholder": "new project...",
+    "projectCreated": "project created",
+    "createProject": "Create",
+    "lastJobError": "Last job: {{msg}}",
+    "tab": {
+      "import": "Import wiki",
+      "docs": "Documents",
+      "wiki": "Wiki",
+      "search": "Search",
+      "skill": "Skill & Access"
+    },
+    "session": {
+      "title": "Accedi alla conoscenza aziendale",
+      "intro": "Vedrai solo i documenti consentiti dai tuoi permessi aziendali. Le risposte dell'assistente usano lo stesso accesso.",
+      "sso": "Accedi con l'account aziendale",
+      "ssoWaiting": "Completa l'accesso nella finestra del browser che si è appena aperta.",
+      "ssoFailed": "Accesso non completato: {{msg}}",
+      "username": "Nome utente o email",
+      "password": "Password",
+      "submit": "Accedi",
+      "signingIn": "Accesso in corso…",
+      "expired": "La sessione è scaduta o è stata revocata. Accedi di nuovo.",
+      "viewingAs": "Vedi la conoscenza come",
+      "rolesLabel": "I tuoi ruoli",
+      "clearance": "livello {{level}}",
+      "admin": "amministratore",
+      "noRoles": "nessun ruolo aziendale",
+      "moreRoles": "altri {{count}}",
+      "fewerRoles": "Mostra meno",
+      "logout": "Esci",
+      "levels": {
+        "public": "pubblico",
+        "internal": "interno",
+        "confidential": "riservato",
+        "restricted": "strettamente riservato"
+      }
+    },
+    "access": {
+      "tab": "Permessi",
+      "loading": "Caricamento dei permessi…",
+      "nobody": "nessuno (permessi della fonte non leggibili)",
+      "unknownPerson": "persona {{id}}…",
+      "pendingUser": "{{name}} (verificato al salvataggio)",
+      "remove": "Togli {{name}}",
+      "addLabel": "Ruolo o nome utente",
+      "addPlaceholder": "Ruolo o nome utente",
+      "addRole": "Aggiungi come ruolo",
+      "addUser": "Aggiungi come persona",
+      "level": "Classificazione",
+      "save": "Salva",
+      "saved": "Salvato",
+      "discard": "Annulla le modifiche",
+      "cancel": "Annulla",
+      "confirm": "Conferma e salva",
+      "widening": "Questa modifica allarga l'accesso. Documenti interessati: {{count}}.",
+      "gains": "Potranno vedere: {{who}}",
+      "removedFromList": "Tolti dall'elenco: {{who}}",
+      "sourcesLeave": "Sorgenti che escono dalla collezione (restano solo le loro regole proprie): {{list}}",
+      "levelChange": "Classificazione da {{from}} a {{to}}",
+      "filterOffEffect": "Ogni documento del progetto diventa visibile a chiunque possa aprire il progetto.",
+      "restrictionLifted": "Viene tolta una restrizione: valgono solo le regole che restano.",
+      "filterTitle": "Filtro dei permessi",
+      "filterOn": "Attivo.",
+      "filterOff": "Spento.",
+      "filterOnHint": "Ogni documento è visibile solo a chi è ammesso dalle sue regole; i documenti senza regole sono visibili solo agli amministratori.",
+      "filterOffHint": "Chiunque possa aprire il progetto vede tutti i documenti. Etichetta i documenti o crea le collezioni prima di attivarlo.",
+      "turnOn": "Attiva il filtro",
+      "turnOff": "Spegni il filtro",
+      "gateTitle": "Chi può aprire il progetto",
+      "gateHint": "Chi non ha uno di questi ruoli non vede nemmeno il progetto.",
+      "gateEmpty": "Tutti gli utenti collegati.",
+      "collectionsTitle": "Collezioni",
+      "collectionsHint": "Una collezione dà lo stesso accesso a sorgenti intere, come un ramo di wiki importato o una cartella di documenti.",
+      "noCollections": "Nessuna collezione.",
+      "newCollection": "Nuova collezione",
+      "collectionName": "Nome della collezione",
+      "sourcesLegend": "Sorgenti della collezione",
+      "noSources": "Il progetto non ha ancora sorgenti: importa prima una wiki o una cartella.",
+      "inOther": "già nella collezione {{name}}",
+      "sourcesList": "Sorgenti: {{list}}",
+      "whoSees": "Chi può vedere questi documenti",
+      "onlyAdmins": "Solo gli amministratori.",
+      "editNamed": "Modifica {{name}}",
+      "deleteNamed": "Elimina {{name}}",
+      "pageHint": "Per i permessi di un singolo documento aprilo nella scheda Wiki.",
+      "pageTitle": "Permessi del documento",
+      "pageCollection": "Collezione {{name}}:",
+      "fromSource": "Letti dalla fonte (devono valere tutti):",
+      "or": " oppure ",
+      "pageWho": "Chi può vedere questo documento",
+      "pageOwn": "Regole di questo documento (in aggiunta a quelle sopra)",
+      "pageOwnEmpty": "Nessuna regola propria: decide la collezione."
+    }
+  },
+  "tests": {
+    "title": "System tests",
+    "subtitle": "Verify each subsystem: audio pipeline, STT/TTS, agent, calls, avatar.",
+    "gpuSim": "GPU simulation",
+    "runAll": "Run all",
+    "running": "Running...",
+    "pass": "pass",
+    "fail": "fail",
+    "skip": "skip"
+  },
+  "oauth": {
+    "google": {
+      "title": "Configura Google Calendar",
+      "steps": [
+        {
+          "title": "Progetto Google Cloud",
+          "lines": [
+            "Apri Google Cloud Console e crea un progetto (o scegline uno esistente).",
+            "Un nome qualsiasi va bene, es. \"callAPIcall\"."
+          ],
+          "link": "Apri Google Cloud Console"
+        },
+        {
+          "title": "Abilita la Calendar API",
+          "lines": [
+            "Nel progetto, abilita la Google Calendar API (clic su \"Enable\")."
+          ],
+          "link": "Apri la pagina della Calendar API"
+        },
+        {
+          "title": "Schermata consenso OAuth",
+          "lines": [
+            "Configura la schermata di consenso: tipo \"External\", nome app e la tua email bastano.",
+            "Se lasci l app in \"Testing\", Google fa scadere l accesso ogni 7 giorni: dopo il setup clicca \"Publish App\" (nessuna verifica richiesta)."
+          ],
+          "link": "Apri la schermata di consenso"
+        },
+        {
+          "title": "Crea le credenziali",
+          "lines": [
+            "Crea credenziali → \"OAuth client ID\" → tipo applicazione: \"Desktop app\".",
+            "Copia \"Client ID\" e \"Client secret\" e incollali qui sotto."
+          ],
+          "link": "Apri Credenziali"
+        },
+        {
+          "title": "Collega l account",
+          "lines": [
+            "Clicca \"Connetti\": si apre una finestra del browser per il login Google.",
+            "Concedi l accesso in sola lettura al calendario e torna qui: il wizard rileva la connessione automaticamente."
+          ]
+        }
+      ]
+    },
+    "microsoft": {
+      "title": "Configura Outlook (Microsoft)",
+      "steps": [
+        {
+          "title": "Registra l app su Azure",
+          "lines": [
+            "Apri Azure Portal → App registrations → \"New registration\".",
+            "Un nome qualsiasi; in \"Supported account types\" scegli l ultima opzione (account aziendali E personali) per gli account @outlook/@hotmail."
+          ],
+          "link": "Apri App registrations"
+        },
+        {
+          "title": "Autenticazione (public client)",
+          "lines": [
+            "Nell app: Authentication → \"Add a platform\" → \"Mobile and desktop applications\" → seleziona il redirect nativo.",
+            "Imposta \"Allow public client flows\" su YES e salva."
+          ]
+        },
+        {
+          "title": "Permesso Calendars.Read",
+          "lines": [
+            "API permissions → \"Add a permission\" → Microsoft Graph → Delegated → cerca e seleziona \"Calendars.Read\" → Add.",
+            "(Nessun \"Grant admin consent\" richiesto per gli account personali.)"
+          ]
+        },
+        {
+          "title": "Application (client) ID",
+          "lines": [
+            "Dalla pagina Overview, copia l \"Application (client) ID\" e incollalo qui sotto.",
+            "Tenant: lascia \"common\" per gli account personali; inserisci il dominio tenant per gli account aziendali."
+          ]
+        },
+        {
+          "title": "Collega l account",
+          "lines": [
+            "Clicca \"Connetti\": apparirà un codice da inserire su microsoft.com/devicelogin.",
+            "Dopo il login, il wizard rileva la connessione automaticamente."
+          ]
+        }
+      ]
+    },
+    "fields": {
+      "calendar_google_client_id": {
+        "label": "Client ID",
+        "placeholder": "xxxxxxxx.apps.googleusercontent.com"
+      },
+      "calendar_google_client_secret": {
+        "label": "Client secret",
+        "placeholder": "GOCSPX-..."
+      },
+      "calendar_ms_client_id": {
+        "label": "Application (client) ID",
+        "placeholder": "00000000-0000-0000-0000-000000000000"
+      },
+      "calendar_ms_tenant": {
+        "label": "Tenant",
+        "placeholder": "common"
+      }
+    },
+    "wizard": {
+      "back": "Back",
+      "done": "Done",
+      "cancel": "Cancel",
+      "next": "Next",
+      "saving": "Saving...",
+      "step": "Step {{n}}:",
+      "connected": "Account connected! Events will appear in the Meetings section.",
+      "connect": "Connect",
+      "connecting": "Waiting for login...",
+      "deviceCodeLabel": "Code:",
+      "deviceCodeOpen": "Open {{uri}}"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Bridge configuration. Changes take effect after saving; fields marked with a warning require a restart.",
+    "loading": "Loading configuration...",
+    "serverDown": "Control server unreachable: start the bridge from Components.",
+    "needsRestart": "Requires restart",
+    "savedRestartNotice": "Saved. Restart required for:",
+    "restartMain": "Restart bridge",
+    "unsavedChanges": "{{count}} unsaved change(s)",
+    "groups": {
+      "sessionVoice": "Session & voice",
+      "pushToTalk": "Push-to-talk",
+      "copilot": "Copilot",
+      "avatar": "Avatar",
+      "gateway": "Voice gateway",
+      "phone": "Android phone",
+      "gsm": "GSM modem",
+      "hermes": "Hermes agent",
+      "analysis": "Analysis",
+      "meetbot": "Meeting bot",
+      "calendar": "Calendar",
+      "knowledge": "Knowledge",
+      "handy": "Motori voce (STT/TTS)",
+      "hfp": "Audio (HFP/device)",
+      "control": "Control server",
+      "misc": "Other"
+    },
+    "params": {
+      "phone_host": "Android app host (IP or hostname of the phone on the local network).",
+      "phone_port": "Android app port (default 8765).",
+      "auth_token": "Bearer token for Android app authentication.",
+      "hfp_input_device": "HFP Bluetooth input device name (mic). Leave null to use system default.",
+      "hfp_output_device": "HFP Bluetooth output device name (speaker). Leave null to use system default.",
+      "sample_rate": "Audio sample rate in Hz (8000 for HFP, 16000 recommended for STT).",
+      "block_ms": "Audio block size in milliseconds (lower = lower latency, higher CPU usage).",
+      "handy_host": "Host del server STT/TTS del bridge (default localhost).",
+      "handy_port": "Porta del server STT/TTS del bridge (default 8720).",
+      "control_host": "Control server host (default 0.0.0.0 to listen on all interfaces).",
+      "control_port": "Control server port (default 8770).",
+      "control_auth_token": "Bearer token for the control server API.",
+      "default_voice": "Voce di default delle sessioni (vuoto = voce predefinita del motore).",
+      "default_lang": "Default language for STT (e.g. it, en-us). Affects transcription accuracy.",
+      "default_stt_model": "Modello Whisper di default per l'STT (null = predefinito del motore).",
+      "push_to_talk_enabled": "Enable push-to-talk hotkeys (Shift+F1, Shift+F2).",
+      "push_to_talk_hotkey": "Hotkey for half-duplex mode (speakers). Default: shift+f1.",
+      "push_to_talk_hotkey_fullduplex": "Hotkey for full-duplex mode (headphones). Default: shift+f2.",
+      "push_to_talk_hotkey_limited": "Hotkey for limited/simulation mode. Default: shift+f3.",
+      "ptt_turn_pause_s": "Seconds of silence before PTT considers the user has finished speaking.",
+      "ptt_post_tts_pause_s": "Pause in seconds after TTS playback before re-enabling the microphone.",
+      "ptt_listen_warmup_s": "Microphone warm-up time in seconds before PTT starts listening.",
+      "ptt_input_device": "Microphone device name for PTT. Null = system default.",
+      "ptt_output_device": "Speaker device name for PTT. Null = system default.",
+      "copilot_enabled": "Enable the videocall copilot (Shift+F4).",
+      "push_to_talk_hotkey_copilot": "Hotkey to toggle the copilot. Default: shift+f4.",
+      "copilot_use_acp": "Use ACP agent for copilot suggestions (true) or direct HTTP Hermes (false).",
+      "copilot_loopback_samplerate": "Sample rate for loopback capture (system audio from the call).",
+      "copilot_lang": "Language for copilot STT (e.g. it, en-us).",
+      "copilot_num_responses": "Number of suggested replies generated by the copilot per turn.",
+      "copilot_audio_reply": "Speak copilot suggestions aloud via TTS.",
+      "copilot_tts_output_device": "Output device for copilot TTS audio.",
+      "copilot_font_size": "Copilot overlay font size (pt).",
+      "copilot_scroll_speed": "Copilot overlay scroll speed (pixels per second).",
+      "copilot_hide_from_capture": "Hide copilot overlay from screen capture (OBS, Meet, Teams).",
+      "copilot_preamble": "System preamble injected before each copilot agent call.",
+      "avatar_enabled": "Enable the avatar video worker (MuseTalk).",
+      "avatar_dir": "Directory containing avatar persona folders.",
+      "avatar_persona": "Default persona name to activate on startup.",
+      "avatar_audio_device": "Audio output device used by the avatar worker.",
+      "avatar_gpu_index": "GPU index for the avatar worker (null = auto).",
+      "avatar_prepare_timeout_s": "Max seconds to wait for avatar clip preparation.",
+      "hermes_base_url": "Hermes agent HTTP base URL (e.g. http://localhost:8780).",
+      "hermes_mode": "Hermes connection mode: acp (WSL subprocess) or http (external server).",
+      "acp_enabled": "Enable ACP agent mode (Hermes runs as a subprocess inside WSL).",
+      "acp_wsl_distro": "WSL distribution name for the ACP agent (e.g. Ubuntu).",
+      "acp_wsl_command": "Shell command to start the ACP agent inside WSL.",
+      "acp_cwd": "Working directory for the ACP agent inside WSL.",
+      "acp_init_timeout_s": "Seconds to wait for ACP agent initialization before giving up.",
+      "acp_response_timeout_s": "Max seconds to wait for a single ACP agent response.",
+      "acp_voice_preamble": "System preamble appended to each ACP voice session.",
+      "barge_in_enabled": "Enable barge-in: user can interrupt the agent while it is speaking.",
+      "barge_in_energy_threshold": "Energy level (RMS) above which barge-in triggers.",
+      "gateway_enabled": "Enable the voice gateway WebSocket server for the Android app.",
+      "gateway_host": "Gateway bind host.",
+      "gateway_port": "Gateway WebSocket port (default 8771).",
+      "gateway_auth_token": "Bearer token for gateway connections.",
+      "gateway_media_port": "Gateway media (RTP) port (default 8772).",
+      "call_transport": "Call transport: auto, gsm or android.",
+      "gsm_port": "Serial port for the GSM modem (e.g. COM6).",
+      "gsm_baud": "Baud rate for the GSM modem serial connection.",
+      "gsm_record_window_s": "Seconds to record audio after the GSM call connects.",
+      "gsm_answer_wait_s": "Seconds to wait for the call to be answered.",
+      "gsm_tts_file": "Path to the WAV file played to the remote party via GSM.",
+      "gsm_record_id": "Identifier prefix for GSM call recordings.",
+      "gsm_play_volume": "Playback volume for GSM audio (0.0–1.0).",
+      "gsm_auto_answer": "Auto-answer incoming GSM calls.",
+      "meetbot_enabled": "Enable the meeting bot (joins Meet/Teams calls).",
+      "meetbot_backend": "Meeting bot backend: selenium or playwright.",
+      "meetbot_display_name": "Display name shown by the bot in the meeting.",
+      "meetbot_artifacts_dir": "Directory where meeting recordings and transcripts are saved.",
+      "calendar_google_client_id": "Google Calendar OAuth client ID.",
+      "calendar_google_client_secret": "Google Calendar OAuth client secret.",
+      "calendar_ms_client_id": "Microsoft Calendar OAuth application (client) ID.",
+      "calendar_ms_tenant": "Microsoft tenant ID (or common for multi-tenant).",
+      "calendar_poll_s": "Calendar polling interval in seconds.",
+      "knowledge_api_url": "Wikibridge knowledge server URL (default http://localhost:8775).",
+      "knowledge_api_token": "Bearer token for the wikibridge API.",
+      "knowledge_root": "Local path to the wikibridge data directory.",
+      "knowledge_serve_cmd": "Command to start the wikibridge server.",
+      "analysis_artifacts_dir": "Directory where video/audio analysis artifacts are stored.",
+      "analysis_ffmpeg_path": "Path to ffmpeg binary (null = use system PATH).",
+      "analysis_ytdlp_path": "Path to yt-dlp binary (null = use system PATH).",
+      "analysis_segment_s": "Audio segment length in seconds for parallel transcription.",
+      "analysis_chunk_chars": "Text chunk size in characters for LLM analysis.",
+      "hermes_start_cmd": "Shell command to start Hermes in HTTP mode.",
+      "hermes_stop_cmd": "Shell command to stop Hermes in HTTP mode.",
+      "poll_status_interval_s": "Interval in seconds for polling component status.",
+      "tts_speed": "TTS playback speed multiplier (1.0 = normal).",
+      "avatar_fps": "Fotogrammi al secondo generati dall'avatar. E' la leva piu' diretta sul carico GPU: il lavoro di UNet/VAE cresce col NUMERO di fotogrammi, quindi 16 al posto di 25 ne toglie un terzo. Il labiale resta allineato (le feature audio si ricampionano). Richiede il riavvio del worker."
+    },
+    "avatarFps": {
+      "nativo": "{{fps}} fps — nativo, carico pieno",
+      "leggero": "{{fps}} fps — {{carico}}% di carico GPU",
+      "consigliato": "{{fps}} fps — {{carico}}% di carico (consigliato)",
+      "minimo": "{{fps}} fps — {{carico}}% di carico, a scatti"
+    }
+  },
+  "voicePicker": {
+    "engine": "Motore",
+    "enginePh": "Motore TTS",
+    "voicePh": "Voce",
+    "noVoices": "nessuna voce disponibile",
+    "cloned": "clonata"
+  }
+}

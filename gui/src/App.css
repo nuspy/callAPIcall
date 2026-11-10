@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+/* Stessi token di Handy (i componenti ui/ sono condivisi) ma con accento blu:
+   a colpo d'occhio si distingue il Control Center dall'app Handy. */
+@theme {
+  --color-text: #0f0f0f;
+  --color-background: #fbfbfb;
+  --color-background-ui: #3a6fd8;
+  --color-logo-primary: #8ab4f8;
+  --color-logo-stroke: #27313f;
+  --color-text-stroke: #f6f6f6;
+  --color-mid-gray: #808080;
+}
+
+:root {
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #fbfbfb;
+    --color-background: #23252a;
+    --color-logo-primary: #6f9ef0;
+    --color-logo-stroke: #cfdcf5;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-text), transparent 85%);
+  border-radius: 6px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--color-text), transparent 70%);
+  background-clip: content-box;
+  border: 3px solid transparent;
+}
